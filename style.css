@@ -42,7 +42,6 @@
 }
 
 .devinfo {
-  font-size: 16px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -67,6 +66,7 @@
 .buttons {
   margin-top: 2.2em;
   font-size: 16px;
+  
 }
 .btn {
   width: 84px;
@@ -130,10 +130,12 @@
 
 .intro p {
   color: white;
-  margin: px;
   justify-content: center;
   align-items: center;
   margin-left: 160px;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  text-align: justify;
 }
 
 * {
@@ -229,6 +231,14 @@ body {
   animation: fillBars 2.5s 1;
   max-width: 25%;
 }
+.skill-per6 {
+  height: 6px;
+  background: white;
+  border-radius: 8px;
+  position: relative;
+  animation: fillBars 2.5s 1;
+  max-width: 65%;
+}
 .skill-per::before {
   content: attr(per);
   position: absolute;
@@ -285,6 +295,17 @@ body {
   transform: translateX(50%);
 }
 .skill-per5::before {
+  content: attr(per);
+  position: absolute;
+  padding: 4px 6px;
+  background: darkred;
+  border-radius: 4px;
+  font-size: 12px;
+  top: -35px;
+  right: 0;
+  transform: translateX(50%);
+}
+.skill-per6::before {
   content: attr(per);
   position: absolute;
   padding: 4px 6px;
@@ -363,6 +384,17 @@ body {
   transform: translateX(50%) rotate(45deg);
   border-radius: 2px;
 }
+.skill-per6::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: darkred;
+  top: -19px;
+  right: 0;
+  transform: translateX(50%) rotate(45deg);
+  border-radius: 2px;
+}
 .card1 {
   width: 900px;
   padding: 20px 35px;
@@ -406,6 +438,13 @@ body {
   margin-left: 160px;
   margin-top: 10 px;
 }
+.mor{
+  margin-left: 80px;
+  transform: rotate(320deg);
+  position: fixed;
+
+  
+}
 @media (max-width: 1079px) {
   .intro h2 {
     font-family: "Bebas Neue", cursive;
@@ -434,15 +473,19 @@ body {
   
 
   .buttons {
-    font-size: 0px;
+    margin-top: 50px;
+    
   }
 
   .devinfo {
-    font-size: 10px;
+    font-size: 8px;
+    
+
   }
 
   .devpic {
-    display: none;
+    margin-right: -90px;
+    position: inherit;
   }
   .intro,
   .contactform {
@@ -465,8 +508,9 @@ body {
   .intro p {
     color: white;
     margin: 20px;
-    justify-content: center;
-    align-items: center;
+    text-align: justify;
+    
+    
   }
  
   .personaldetail {
@@ -476,21 +520,23 @@ body {
 
 }
 .my.qualification h6 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Bebas Neue", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 80px;
   color: #0077b5;
+  font-size: 15px;
 }
 .my.qualification h3 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Bebas Neue", cursive;
   color: midnightblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 25px;
 }
 .card2 {
   padding: 20px 35px;
@@ -845,6 +891,7 @@ footer P:nth-child(2) {
 .social a:hover {
   transform: scale(1.3);
   transition: 0.3s;
+  color: black;
 }
 .end {
   color: #f9004d;
@@ -919,7 +966,19 @@ img.logo {
   justify-content: center;
   justify-items: center;
   align-items: center;
-
-
-
 }
+a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover{
+  color: red;
+  cursor: pointer;
+  text-decoration: none;
+}
+h3{
+  color: white;
+  font-size: medium;
+}
+
