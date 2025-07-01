@@ -1,118 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="css/all.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
-    <title> BRIJESH VYAS - PORTFOLIO WEBSITE</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Qualification - Brijesh Vyas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            color: #111;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #f9004d;
+            text-decoration: none;
+        }
+
+        .custom-navbar {
+            background-color: #eaeaea;
+            color: #111;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-navbar .navbar-brand,
+        .custom-navbar .navbar-toggler {
+            color: #111;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .offcanvas {
+            background-color: #fff;
+            color: #111;
+        }
+
+        .offcanvas .nav-link {
+            color: #111 !important;
+            font-weight: 500;
+        }
+
+        .offcanvas .nav-link:hover,
+        .offcanvas .nav-link:focus,
+        .offcanvas .nav-link.active {
+            color: #f9004d !important;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .notepad-block {
+            background-color: #f4f4f4;
+            border-left: 3px solid #f9004d;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .notepad-block.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notepad-block:hover {
+            background-color: #eaeaea;
+            transform: scale(1.02);
+        }
+
+        .notepad-block h5 {
+            font-weight: 600;
+            color: #f9004d;
+            margin-bottom: 0.5rem;
+        }
+
+        ul.cert-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.cert-list li {
+            padding: 0.4rem 0;
+        }
+
+        ul.cert-list a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        ul.cert-list a:hover {
+            text-decoration: underline;
+            color: #f9004d;
+        }
+
+        footer {
+            background: #eaeaea;
+            padding: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        footer .social a {
+            margin: 0 0.75rem;
+            color: #111;
+            font-size: 1.6rem;
+            transition: 0.3s ease;
+        }
+
+        footer .social a:hover {
+            transform: scale(1.2);
+            color: #f9004d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #181818;
+                color: white;
+            }
+
+            a {
+                color: white;
+            }
+
+            a:hover {
+                color: #f9004d;
+            }
+
+            .custom-navbar {
+                background-color: #191919;
+                color: white;
+            }
+
+            .custom-navbar .navbar-brand,
+            .custom-navbar .navbar-toggler {
+                color: white;
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+
+            .offcanvas {
+                background-color: #101010;
+                color: white;
+            }
+
+            .offcanvas .nav-link {
+                color: white !important;
+            }
+
+            .notepad-block {
+                background-color: #202020;
+            }
+
+            .notepad-block:hover {
+                background-color: #242424;
+            }
+
+            ul.cert-list a {
+                color: #ccc;
+            }
+
+            ul.cert-list a:hover {
+                color: #f9004d;
+            }
+
+            footer {
+                background: #191919;
+                color: white;
+            }
+
+            footer .social a {
+                color: white;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-         
-        <div class="sidebar sidebargo">
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/intro.html">My intro</a></li>
-                    <li><a href="/qualification.html">Qualification</a></li>
-                    <li><a href="/projects.html">projects</a></li>
-                    <li><a href="contact.html">Contact me</a></li>
-                   
+    <nav class="navbar fixed-top custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Qualification</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close text-reset bg-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="intro.html">My Intro</a></li>
+                <li class="nav-item"><a class="nav-link active" href="qualification.html">Qualification</a></li>
+                <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container mt-5 pt-5 mb-5">
+        <div class="text-center my-4">
+            <h2 class="section-title">My Qualifications</h2>
+            <p style="color: #888;">Educational background and certifications</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="notepad-block">
+                    <h5>B.E. - Computer Engineering</h5>
+                    <p>Sanjaybhai Rajguru College, Rajkot</p>
+                    <p>2018 - 2022 | CGPA: 8.70</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="notepad-block">
+                    <h5>HSC - Science</h5>
+                    <p>SHETH K.R.K.V School, Mandvi</p>
+                    <p>2017 - 2018 | 69.83%</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="notepad-block">
+                    <h5>SSC</h5>
+                    <p>SHREE TULSI VIDHYA MANDIR, Nana Bhadiya</p>
+                    <p>2015 - 2016 | 80.83%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <h4 class="fw-bold">Certificates & Online Courses</h4>
+        </div>
+
+        <div class="row g-4 mt-3">
+            <div class="col-md-6">
+                <ul class="cert-list">
+                    <li><a href="/8sem result.pdf" target="_blank">🎓 Final Semester Result – Rajkot Engineering</a></li>
+                    <li><a href="/Certificate_ (1).pdf" target="_blank">🛰️ ISRO Data Processing – IIRS Dehradun</a></li>
+                    <li>📘 JavaScript – Simplilearn</li>
+                    <li>📘 Java – Simplilearn</li>
                 </ul>
-            </nav>
-        </div> 
-       
-            <div class="content1">
-                <div class="hamburger">
-                    <img class="ham"src="ham.png" alt="" width="30px">
-                    <img class="cross"src="cross1.png" alt="" width="20px">
-                </div>
-                <div class="my qualification">
-                    <h6>MY Qualification</h6>
-                    <br>
-                    <h3>Awesome Journey</h3> 
-                </div>
-                <div class="social-menu">
-                    <i class="fa-solid fa-user-graduate"><p>EDUCATION</p></i>
-                
-                </div> 
-                <div class="social-menu">
-                    <div class="card2">
-                        <i class="fa-solid fa-building-columns"></i>
-                        <div class="qualification-data">
-                        
-                        <h1>SANJAYBHAI RAJGURU COLLAGE OF ENGINEERING</h1>
-                        <h2> Bachelor of Engineering (B.E)</h2>
-                        <h3>Computer Science & Engineering</h3>
-                        <h4>CGPA : 8.70<h4>
-                        <h5><i class="fa-solid fa-map-pin"></i> Rajkot - Gujrat<h5>
-                        <h6><i class="fa fa-calendar"></i> 2018 - 2022 (July)</h6>
-                    </div>
-                </div>
-                <div class="social-menu">
-                    <div class="card2">
-                        <i class="fa-solid fa-school-flag"></i>
-                        <div class="qualification-data">
-                        
-                        <h1>SHETH K.R.K.V SCHOOL</h1>
-                        <h2>Higher secondary</h2>
-                        <h3>12th science (Physics , chemistry , maths)</h3>
-                        <h4>Percentage : 69.83%<h4>
-                        <h5><i class="fa-solid fa-map-pin"></i> Mandvi - Gujrat</h5>
-                        <h6><i class="fa fa-calendar"></i> 2017 - 2018 (march)</h6>
-                    </div>
-                </div>  
-                <div class="social-menu">
-                    <div class="card2">
-                        <i class="fa-solid fa-school"></i>
-                        <div class="qualification-data">
-                        
-                        <h1>SHREE TULSI VIDHYA MANDIR</h1>
-                        <h2>Secondary</h2>
-                        <h3>10th</h3>
-                        <h4>Percentage : 80.83%<h4>
-                        <h5><i class="fa-solid fa-map-pin"></i> Nana Bhadiya - Gujrat</h5>
-                        <h6><i class="fa fa-calendar"></i> 2015 - 2016 (march)</h6>
-                    </div>
-                </div>  
-                <br>
-                <br>
-                <br>
-                <div class="certificates">
-                    <h1><img class="certificate" src="certificate.png" alt="certificate" width="30px">&nbsp;&nbsp;CERTIFICATES AND COURSE </h1>
-                    <div class="card4">
-                    
-                            <ol>
-                                <li><a href="/8sem result.pdf" aria-label="none" rel="noopener" target="_blank">Computer Ccience and Engineering from sanjaybhai rajguru collage of engineering [ rajkot(July 2022) ]</a></li>
-                                <li><a href="/Certificate_ (1).pdf" aria-label="none" rel="noopener" target="_blank">MOOC sar data procesing & its applications by IIRS, ISRO dehradun</a></li>
-                                <li>Javascript from simplilearn application platform</li>
-                                <li>Java from simplilearn application platform</li>
-                                <li><a href="https://youtu.be/gfDE2a7MKjA" rel="noopener" aria-label="none" target="_blank" > Tutorial For Beginners from youtube by codewith harry</a></li>
-                                <li><a href="https://youtu.be/HcOc7P5BMi4" rel="noopener" aria-label="none" target="_blank" > HTML Tutorial for Beginners from youtube by Apna college</a></li>
-                                <li><a href="/infosys_virtual_experience_program_completion_certificate.pdf" rel="noopener" aria-label="none" target="_blank">Power programmr virtual experians program by infosys</a></li>
-                            </ol>
-                    </div>
-                 <br>     
-                 <br>
-                </div>  
             </div>
-    </div>   
-        <footer >
-            <p> <img class="logo" src="logo.png" alt="logo" width="20px"> &nbsp;&nbsp;Brijesh Vyas</p>
-            <p>This is my Portfolio-Website Made by Brijesh Vyas with ❤️‍🔥 and ☕️</p>
-            <div class="social">
-              <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" aria-label="none" rel="noopener" target="_blank"><i class="fa fa-linkedin"></i></a>
-              <a href="http://github.com/brijvyas-7" rel="noopener" aria-label="none" target="_blank"><i class="fa fa-github"></i></a>
-              <a href="https://instagram.com/brijvyas_7?igshid=YmMyMTA2M2Y=" aria-label="none" rel="noopener" target="_blank"><i class="fa fa-instagram"></i></a>
-              <a href="https://youtube.com/c/BRIJVYAS" rel="noopener" aria-label="none" target="_blank"><i class="fa fa-youtube"></i></a>
+            <div class="col-md-6">
+                <ul class="cert-list">
+                    <li><a href="https://youtu.be/gfDE2a7MKjA" target="_blank">📺 JS Crash Course – CodeWithHarry</a></li>
+                    <li><a href="https://youtu.be/HcOc7P5BMi4" target="_blank">📺 HTML Basics – Apna College</a></li>
+                    <li><a href="/infosys_virtual_experience_program_completion_certificate.pdf" target="_blank">🏆 Infosys Power Programmer Virtual</a></li>
+                </ul>
             </div>
-            <p class="end">copyright by brijesh <i class="fa-regular fa-copyright"></i> 2022</p>
-        </footer>
-   
-<script src="script.js"></script>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="social">
+            <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js">
+     
+    </script>
 </body>
+
 </html>

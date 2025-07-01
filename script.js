@@ -1,14 +1,16 @@
-document.querySelector('.cross').style.display = 'none';
-document.querySelector('.hamburger').addEventListener("click",()=>{
-    document.querySelector('.sidebar').classList.toggle('sidebargo');
-    if(document.querySelector('.sidebar').classList.contains('sidebargo')){
-        document.querySelector('.ham').style.display = 'inline'
-        document.querySelector('.cross').style.display = 'none'
-        
-    }
-    else{
-        document.querySelector('.ham').style.display = 'none'
-        setTimeout(() => {
-        document.querySelector('.cross').style.display = 'inline'},400);
-    }
-})
+  $(document).ready(function () {
+    $(window).trigger('scroll'); // force scroll check on load
+  });
+
+  $(window).on('scroll', function () {
+    $('.skill-box, .project-card, .notepad-block').each(function (i) {
+      const top = $(this).offset().top;
+      const bottom = $(window).scrollTop() + $(window).height();
+      if (bottom > top && !$(this).hasClass('visible')) {
+        $(this).delay(i * 150).queue(function () {
+          $(this).addClass('visible').dequeue();
+        });
+      }
+    });
+  });
+
