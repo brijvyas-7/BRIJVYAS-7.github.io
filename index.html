@@ -1,125 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home - Brijesh Vyas</title>
-
-  <!-- Bootstrap & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-
   <style>
-    /* Page-specific styles */
-    .hero-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      min-height: 90vh;
-      padding-top: 5rem;
-      gap: 2rem;
-      margin-bottom: 3rem;
+    :root {
+      --primary: #f9004d;
+      --dark: #121212;
+      --darker: #0a0a0a;
+      --light: #f5f5f5;
+      --gray: #6b6b6b;
     }
 
-    .intro-text {
-      max-width: 500px;
-      text-align: center;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--darker);
+      color: var(--light);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
     }
 
-    .intro-text h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-
-    .intro-text p {
-      font-size: 1.15rem;
-      color: #555;
-    }
-
-    .btn-custom {
-      background-color: #f9004d;
-      color: white;
-      border: none;
-      transition: 0.3s ease;
-    }
-
-    .btn-custom:hover {
-      background-color: white;
-      color: #181818;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #f9004d;
-    }
-
-    .btn-outline-custom {
-      border: 1px solid #333;
-      color: #111;
-      transition: all 0.3s ease;
-    }
-
-    .btn-outline-custom:hover {
-      background-color: #f9004d;
-      color: white;
-      border-color: #f9004d;
-    }
-
-    .image-box {
-      max-width: 260px;
-      border-radius: 20px;
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .image-box img {
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      background: url('dev1.jpeg') center/cover no-repeat;
+      z-index: -3;
+      animation: zoomSlow 30s infinite alternate ease-in-out;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(249, 0, 77, 0.1), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(249, 0, 77, 0.1), transparent 25%),
+        linear-gradient(rgba(18, 18, 18, 0.95), rgba(0, 0, 0, 0.95));
+      z-index: -2;
+    }
+
+    @keyframes zoomSlow {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at 15% 50%, rgba(249, 0, 77, 0.05), transparent 25%),
+          radial-gradient(circle at 85% 30%, rgba(249, 0, 77, 0.05), transparent 25%),
+          linear-gradient(rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.85));
+      }
+
+      .navbar,
+      footer {
+        background-color: #eaeaea !important;
+        color: var(--dark);
+      }
+
+      .navbar-brand,
+      .nav-link,
+      footer p,
+      footer .social a {
+        color: var(--dark) !important;
+      }
+
+      .nav-link:hover,
+      .nav-link.active,
+      footer .social a:hover {
+        color: var(--primary) !important;
+      }
+
+      .offcanvas {
+        background-color: #f5f5f5 !important;
+        color: var(--dark) !important;
+      }
+
+      .offcanvas .nav-link {
+        color: var(--dark) !important;
+      }
+
+      .offcanvas .nav-link:hover {
+        color: var(--primary) !important;
+      }
+
+      .btn-outline-dark {
+        color: var(--dark);
+        border-color: rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-outline-dark:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: var(--primary);
+      }
+
+      .btn-close {
+        filter: invert(0);
+      }
     }
 
     @media (prefers-color-scheme: dark) {
-      .intro-text p {
-        color: #ccc;
+      .offcanvas {
+        background-color: #191919 !important;
+        color: #f5f5f5 !important;
       }
 
-      .btn-outline-custom {
-        color: white;
-        border-color: white;
+      .offcanvas .nav-link {
+        color: #f5f5f5 !important;
       }
 
-      .btn-outline-custom:hover {
-        background-color: #f9004d;
-        color: white;
-        border-color: #f9004d;
+      .offcanvas .nav-link:hover {
+        color: var(--primary) !important;
+      }
+
+      .btn-close {
+        filter: invert(1);
       }
     }
 
-    @media (max-width: 768px) {
-      .intro-text h1 {
-        font-size: 2.3rem;
+    .navbar {
+      background-color: #191919;
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+    }
+
+    .navbar-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--light);
+    }
+
+    .navbar-brand:hover {
+      color: var(--primary);
+    }
+
+    .nav-link {
+      color: var(--light);
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(249, 0, 77, 0.3);
+      background-color: transparent;
+      color: var(--light);
+    }
+
+    .offcanvas {
+      background-color: #191919;
+      color: var(--light);
+    }
+
+    .offcanvas .nav-link {
+      color: var(--light);
+    }
+
+    .offcanvas .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #fff 40%, var(--primary) 60%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    .hero-buttons .btn {
+      margin: 0.5rem;
+      padding: 0.75rem 2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color 0.4s ease;
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--dark);
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+
+    .btn-primary:hover::before {
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      color: var(--light);
+      box-shadow: 0 5px 20px rgba(249, 0, 77, 0.4);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline-dark:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    footer {
+      background-color: #191919;
+      padding: 1.5rem 0;
+      font-size: 0.95rem;
+      color: #ccc;
+      text-align: center;
+    }
+
+    footer .social a {
+      margin: 0 0.6rem;
+      font-size: 1.6rem;
+      color: #ccc;
+      transition: 0.3s ease;
+    }
+
+    footer .social a:hover {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+
+    /* Custom hamburger icon (always visible) */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    @media (prefers-color-scheme: light) {
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+    }
+
+    .nav-link.active {
+      color: var(--primary) !important;
+      font-weight: 600;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .nav-link.active {
+        color: var(--primary) !important;
       }
     }
   </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <!-- Navbar -->
-  <nav class="navbar fixed-top custom-navbar">
+  <nav class="navbar fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Brijesh Vyas</a>
+      <a class="navbar-brand" href="#">Brijesh <span>Vyas</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
 
-  <!-- Offcanvas Sidebar -->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">Menu</h5>
-      <button type="button" class="btn-close text-reset bg-white" data-bs-dismiss="offcanvas"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
@@ -132,33 +347,28 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero-section container flex-grow-1">
-    <div class="intro-text">
-      <h1 class="mb-3">Brijesh Vyas</h1>
-      <p class="mb-3">Specializing in responsive websites, pixel-perfect frontend, and web accessibility.</p>
-      <a href="Brijesh resume.pdf" target="_blank" class="btn btn-custom me-3">Download CV</a>
-      <a href="contact.html" class="btn btn-outline-custom">Contact Me</a>
-    </div>
-    <div class="image-box">
-      <img src="dev.jpg" alt="Brijesh Vyas" />
+  <section class="hero-section container">
+    <h2 class="hero-title">Hello, I'm</h2>
+    <h1 class="hero-name">Brijesh Vyas</h1>
+    <p class="hero-subtitle">A Deb Developer</p>
+    <div class="hero-buttons">
+      <a href="Brijesh resume.pdf" class="btn btn-primary" target="_blank">Download CV</a>
+      <a href="contact.html" class="btn btn-outline-dark">Hire Me</a>
     </div>
   </section>
 
-  <!-- Footer -->
- <!-- Footer -->
-<footer>
-  <div class="container text-center">
-    <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
+  <footer class="mt-auto">
+    <div class="container">
+      <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
