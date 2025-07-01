@@ -9,49 +9,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #111;
-      background-color: #fff;
-    }
-
-    /* Navbar */
-    .custom-navbar {
-      background-color: #eaeaea;
-    }
-
-    .navbar-brand,
-    .navbar-toggler {
-      color: #111;
-    }
-
-    .navbar-toggler-icon {
-      filter: none;
-    }
-
-    /* Sidebar Menu */
-    .offcanvas {
-      background-color: #ffffff;
-      color: #111;
-    }
-
-    .offcanvas .nav-link {
-      font-weight: 500;
-      color: #111;
-      transition: color 0.3s ease;
-    }
-
-    .offcanvas .nav-link:hover,
-    .offcanvas .nav-link:focus,
-    .offcanvas .nav-link.active {
-      color: #f9004d !important;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    /* Hero Section */
+    /* Page-specific styles */
     .hero-section {
       display: flex;
       flex-wrap: wrap;
@@ -118,62 +79,7 @@
       display: block;
     }
 
-    /* Footer */
-    footer {
-      background-color: #eaeaea;
-      padding: 1rem 0;
-      font-size: 0.95rem;
-      text-align: center;
-      color: #111;
-      border-top: 1px solid #ccc;
-    }
-
-    footer .social a {
-      margin: 0 1rem;
-      font-size: 1.8rem;
-      color: #111;
-      transition: 0.3s ease;
-    }
-
-    footer .social a:hover {
-      color: #f9004d;
-      transform: scale(1.2);
-    }
-
-    /* Dark Mode */
     @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #101010;
-        color: white;
-      }
-
-      .custom-navbar {
-        background-color: #191919;
-      }
-
-      .navbar-brand,
-      .navbar-toggler {
-        color: white;
-      }
-
-      .navbar-toggler-icon {
-        filter: invert(1);
-      }
-
-      .offcanvas {
-        background-color: #101010;
-        color: white;
-      }
-
-      .offcanvas .nav-link {
-        color: white !important;
-      }
-
-      .offcanvas .nav-link:hover,
-      .offcanvas .nav-link.active {
-        color: #f9004d !important;
-      }
-
       .intro-text p {
         color: #ccc;
       }
@@ -188,20 +94,6 @@
         color: white;
         border-color: #f9004d;
       }
-
-      footer {
-        background-color: #191919;
-        color: white;
-        border-top: 1px solid #333;
-      }
-
-      footer .social a {
-        color: white;
-      }
-
-      footer .social a:hover {
-        color: #f9004d;
-      }
     }
 
     @media (max-width: 768px) {
@@ -213,7 +105,6 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
   <!-- Navbar -->
   <nav class="navbar fixed-top custom-navbar">
     <div class="container-fluid">
@@ -250,19 +141,23 @@
       <a href="contact.html" class="btn btn-outline-custom">Contact Me</a>
     </div>
     <div class="image-box">
-      <img src="dev.JPG" alt="Brijesh Vyas" />
+      <img src="dev.jpg" alt="Brijesh Vyas" />
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+ <!-- Footer -->
+<footer>
+  <div class="container text-center">
     <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
     <div class="social">
       <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

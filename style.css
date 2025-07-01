@@ -1,53 +1,21 @@
-/* ===== Base (Light mode default) ===== */
+/* Typography & Base */
 body {
-  background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
   color: #111;
+  text-decoration: none;
 }
 
-.form-control {
-  background-color: #fff;
-  color: #111;
-  border: 1px solid #ccc;
+a:hover {
+  color: #f9004d;
+  text-decoration: none;
 }
 
-footer {
-  background-color: #eaeaea;
-  color: #111;
-}
-
-footer .social a {
-  color: #111;
-}
-
-/* ===== Dark Mode Override ===== */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #101010;
-    color: white;
-  }
-
-  .form-control {
-    background-color: #191919;
-    color: white;
-    border: 1px solid #444;
-  }
-
-  footer {
-    background-color: #191919;
-    color: white;
-  }
-
-  footer .social a {
-    color: white;
-  }
-
-  footer .social a:hover {
-    color: #f9004d;
-  }
-}
-/* Light theme navbar */
+/* Navbar */
 .custom-navbar {
-  background-color: #ffffff;
+  background-color: #eaeaea;
   color: #111;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
@@ -57,14 +25,66 @@ footer .social a {
   color: #111;
 }
 
-.custom-navbar .navbar-toggler {
-  border-color: #ccc;
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Dark mode override */
+/* Offcanvas Menu */
+.offcanvas {
+  background-color: #fff;
+  color: #111;
+}
+
+.offcanvas .nav-link {
+  color: #111 !important;
+  font-weight: 500;
+}
+
+.offcanvas .nav-link:hover,
+.offcanvas .nav-link:focus,
+.offcanvas .nav-link.active {
+  color: #f9004d !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background: #eaeaea;
+  padding: 1.5rem 0;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+footer .social a {
+  margin: 0 0.75rem;
+  color: #111;
+  font-size: 1.6rem;
+  transition: 0.3s ease;
+}
+
+footer .social a:hover {
+  transform: scale(1.2);
+  color: #f9004d;
+}
+
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #181818;
+    color: white;
+  }
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: #f9004d;
+  }
+
   .custom-navbar {
-    background-color: #101010;
+    background-color: #191919;
     color: white;
   }
 
@@ -73,7 +93,32 @@ footer .social a {
     color: white;
   }
 
-  .custom-navbar .navbar-toggler {
-    border-color: #444;
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .offcanvas {
+    background-color: #101010;
+    color: white;
+  }
+
+  .offcanvas .nav-link {
+    color: white !important;
+  }
+
+  .offcanvas .nav-link:hover,
+  .offcanvas .nav-link:focus,
+  .offcanvas .nav-link.active {
+    color: #f9004d !important;
+    font-weight: 600;
+  }
+
+  footer {
+    background: #191919;
+    color: white;
+  }
+
+  footer .social a {
+    color: white;
   }
 }
