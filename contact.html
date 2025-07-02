@@ -5,37 +5,210 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Brijesh Vyas</title>
+
+  <!-- Bootstrap and Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
     .btn-submit {
       background-color: #f9004d;
       color: white;
       transition: all 0.3s ease;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-submit:hover {
       background-color: white;
       color: #101010;
-      border: 1px solid #f9004d;
+      transform: scale(1.03);
+    }
+
+    .plane {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      animation: fly 1s forwards ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(200px, -100px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .custom-navbar {
+      background-color: #eaeaea;
+      color: #111;
+    }
+
+    .custom-navbar .navbar-brand,
+    .custom-navbar .navbar-toggler {
+      color: #111;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .offcanvas {
+      background-color: #fff;
+      color: #111;
+    }
+
+    .offcanvas .nav-link {
+      color: #111 !important;
+      font-weight: 500;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .offcanvas .nav-link:hover,
+    .offcanvas .nav-link:focus,
+    .offcanvas .nav-link.active {
+      color: #f9004d !important;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #eaeaea;
+      padding: 1.5rem 0;
+      font-size: 0.95rem;
+      color: #111;
+    }
+
+    footer .social a {
+      margin: 0 0.6rem;
+      font-size: 1.6rem;
+      transition: 0.3s ease;
+      color: #111;
+    }
+
+    footer .social a:hover {
+      transform: scale(1.2);
+      color: #f9004d;
     }
 
     @media (prefers-color-scheme: dark) {
-      .btn-submit {
-        background-color: #f9004d;
+      body {
+        background-color: #181818;
         color: white;
       }
 
-      .btn-submit:hover {
-        background-color: #f9004d;
+      a {
         color: white;
-        border: 1px solid white;
-        transform: scale(1.05);
       }
+
+      a:hover {
+        color: #f9004d;
+      }
+
+      .custom-navbar {
+        background-color: #191919;
+        color: white;
+      }
+
+      .custom-navbar .navbar-brand,
+      .custom-navbar .navbar-toggler {
+        color: white;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      .offcanvas {
+        background-color: #101010;
+        color: white;
+      }
+
+      .offcanvas .nav-link {
+        color: white !important;
+      }
+
+      .offcanvas .nav-link:hover,
+      .offcanvas .nav-link:focus,
+      .offcanvas .nav-link.active {
+        color: #f9004d !important;
+        font-weight: 600;
+      }
+
+      footer {
+        background-color: #191919;
+        color: white;
+      }
+
+      footer .social a {
+        color: white;
+      }
+    }
+    .btn-submit {
+      background-color: #f9004d;
+      color: white;
+      transition: all 0.3s ease;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit.sent {
+      background-color: transparent;
+      color: transparent;
+      pointer-events: none;
+    }
+
+    .plane {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      animation: fly 1.4s ease-in forwards;
+      font-size: 2rem;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(250px, -150px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .success-msg {
+      text-align: center;
+      color: #28a745;
+      font-weight: 500;
+      margin-top: -2rem;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
@@ -70,7 +243,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
         <h2 class="mb-4 text-center">Get In Touch</h2>
-        <form action="https://formsubmit.co/bvyas928@gmail.com" method="POST">
+        <form>
           <div class="mb-3">
             <label for="name">Full Name</label>
             <input type="text" class="form-control" name="name" id="name" required />
@@ -92,22 +265,86 @@
             <button type="submit" class="btn btn-submit">Send Message</button>
           </div>
         </form>
+        <div id="successMsg" class="success-msg" style="display:none">✅ Message sent successfully!</div>
+
       </div>
     </div>
   </main>
 
   <footer class="text-center mt-auto">
-    <div class="container">
-      <div class="social">
-        <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
+    <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtcnK4gfkRqgCmW5w421uL2u9q9dXpwus",
+      authDomain: "brij-contact-form.firebaseapp.com",
+      projectId: "brij-contact-form",
+      storageBucket: "brij-contact-form.firebasestorage.app",
+      messagingSenderId: "901294303863",
+      appId: "1:901294303863:web:81b1d0a6ac9cf6266df472"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    emailjs.init("T9WMI6a6oPO-LUvCM");
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("form");
+      const successMsg = document.getElementById("successMsg");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const message = form.message.value;
+
+        const btn = document.querySelector(".btn-submit");
+        btn.classList.add("sent");
+
+        const plane = document.createElement("div");
+        plane.classList.add("plane");
+        plane.innerHTML = "🛫";
+        btn.appendChild(plane);
+
+        try {
+          await addDoc(collection(db, "contacts"), {
+            name, email, phone, message,
+            timestamp: serverTimestamp()
+          });
+
+          await emailjs.send("service_92nrjso", "template_af86fou", {
+            name, email, phone, message,
+            time: new Date().toLocaleString()
+          });
+
+          setTimeout(() => {
+            plane.remove();
+            btn.classList.remove("sent");
+            btn.innerHTML = "Send Message";
+            successMsg.style.display = "block";
+            setTimeout(() => successMsg.style.display = "none", 4000);
+          }, 1500);
+
+          form.reset();
+        } catch (err) {
+          console.error("Error:", err);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
