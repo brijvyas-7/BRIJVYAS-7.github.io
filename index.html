@@ -10,6 +10,14 @@
     rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
     :root {
       --primary: #f9004d;
       --dark: #121212;
@@ -49,7 +57,7 @@
       background:
         radial-gradient(circle at 15% 50%, rgba(249, 0, 77, 0.1), transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(249, 0, 77, 0.1), transparent 25%),
-        linear-gradient(rgba(18, 18, 18, 0.95), rgba(0, 0, 0, 0.95));
+        linear-gradient(rgba(18, 18, 18, 0.85), rgba(0, 0, 0, 0.85));
       z-index: -2;
     }
 
@@ -318,6 +326,24 @@
         color: var(--primary) !important;
       }
     }
+    .social {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.social a {
+  margin: 0 0.6rem;
+  font-size: 1.8rem;
+  color: #ccc;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social a:hover {
+  color: var(--primary);
+  transform: scale(1.3) rotate(10deg);
+}
+
+
   </style>
 </head>
 
@@ -357,14 +383,16 @@
     </div>
   </section>
 
-  <footer class="mt-auto">
-    <div class="container">
-      <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
-      <div class="social">
+   <div class="social">
         <a href="https://www.linkedin.com/in/vyas-brijesh-94b44022a" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/brijvyas-7" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://instagram.com/brijvyas_7" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
+
+  <footer class="mt-auto">
+    <div class="container">
+      <p>© 2025 Brijesh Vyas — Made with ❤️ and ☕</p>
+     
     </div>
   </footer>
 
